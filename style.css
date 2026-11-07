@@ -1421,7 +1421,7 @@ a.contact-item__value:hover {
 АДАПТИВНОСТЬ
 ========================================= */
 @media (max-width: 992px) {
-  .nav-desktop, .header-phone { 
+  .nav-desktop, .header-phone, .header-social { 
     display: none; 
   }
   .burger { 
