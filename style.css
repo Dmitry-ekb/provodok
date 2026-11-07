@@ -589,12 +589,6 @@ HERO ПОЛНОЭКРАННЫЙ
   transform: translateZ(0); /* Активирует GPU-слой для плавности */
 }
 
-.product-card:hover {
-  border-color: #3fc33b;
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-4px) translateZ(0);
-}
-
 .product-card--hit { 
   border: 2px solid var(--color-accent); 
 }
@@ -759,15 +753,32 @@ HERO ПОЛНОЭКРАННЫЙ
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+/* Hover — только для устройств с мышью */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    border-color: #3fc33b;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px) translateZ(0);
+  }
 
-.advantage-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-  border-color: #3fc33b;
+  .advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: #3fc33b;
+  }
+  .advantage-card:hover::after { 
+    transform: scaleX(1); 
+  }
 }
 
-.advantage-card:hover::after { 
-  transform: scaleX(1); 
+/* Анимация при появлении в вьюпорте — работает на всех устройствах */
+.advantage-card.is-inview {
+  border-color: #3fc33b;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+.advantage-card.is-inview::after {
+  transform: scaleX(1);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .advantage-card__title {
