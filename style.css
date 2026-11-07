@@ -590,7 +590,7 @@ HERO ПОЛНОЭКРАННЫЙ
 }
 
 .product-card:hover {
-  border-color: rgba(254, 91, 42, 0.3);
+  border-color: #3fc33b;
   box-shadow: var(--shadow-hover);
   transform: translateY(-4px) translateZ(0);
 }
@@ -763,7 +763,7 @@ HERO ПОЛНОЭКРАННЫЙ
 .advantage-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-  border-color: rgba(254, 91, 42, 0.3);
+  border-color: #3fc33b;
 }
 
 .advantage-card:hover::after { 
@@ -961,7 +961,7 @@ FAQ
   outline: none;
   border-color: var(--color-accent);
   background-color: var(--color-bg);
-  box-shadow: 0 0 0 3px rgba(254, 91, 42, 0.1);
+  box-shadow: 0 0 0 3px #3fc33b;
 }
 
 .form__checkbox {
@@ -1365,7 +1365,7 @@ a.contact-item__value:hover {
 
 .floating-max:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 30px rgba(254, 91, 42, 0.3);
+  box-shadow: 0 8px 30px #3fc33b;
 }
 
 /* =========================================
