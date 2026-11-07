@@ -105,4 +105,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if (menuToggle) menuToggle.checked = false;
     });
   });
+  // === 6. ПОБЕГ ЗЕЛЁНОЙ РАМКИ ПО КАРТОЧКАМ ПРИ СКРОЛЛЕ ===
+  const animCards = document.querySelectorAll('.advantage-card');
+  if (animCards.length) {
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-inview');
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    animCards.forEach(card => cardObserver.observe(card));
+  }
 });
+  
