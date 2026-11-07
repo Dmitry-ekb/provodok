@@ -1530,13 +1530,14 @@ a.contact-item__value:hover {
   }
 }
 /* =========================================
-SCROLL-DRIVEN ANIMATION (CSS-only)
+АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (CSS-ONLY)
+Работает автоматически при прокрутке в современных браузерах
 ========================================= */
 @supports (animation-timeline: view()) {
   .reveal {
     opacity: 0;
     transform: translateY(30px);
-    animation: reveal-up 0.8s ease-out forwards;
+    animation: reveal-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation-timeline: view();
     animation-range: entry 10% cover 30%;
   }
@@ -1546,5 +1547,13 @@ SCROLL-DRIVEN ANIMATION (CSS-only)
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+/* Для браузеров без поддержки (Firefox, старые версии) — показываем сразу, чтобы контент не был невидимым */
+@supports not (animation-timeline: view()) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
