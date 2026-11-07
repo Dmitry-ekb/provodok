@@ -628,9 +628,12 @@ HERO ПОЛНОЭКРАННЫЙ
   transition: transform 0.4s ease;
 }
 
-.product-card:hover .product-card__image img {
-  transform: scale(1.05);
-}
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    border-color: #3fc33b;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px) translateZ(0);
+  }
 
 .product-card__head {
   border-bottom: 1px solid rgba(42, 49, 43, 0.1);
@@ -736,7 +739,10 @@ HERO ПОЛНОЭКРАННЫЙ
   padding: var(--spacing-lg);
   border-radius: 16px;
   border: 1px solid rgba(42, 49, 43, 0.06);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s ease;
   position: relative;
   overflow: hidden;
 }
@@ -779,7 +785,6 @@ HERO ПОЛНОЭКРАННЫЙ
   }
   .advantage-card.is-inview::after {
     transform: scaleX(1);
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 }
 
