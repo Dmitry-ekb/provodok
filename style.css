@@ -49,7 +49,7 @@
 }
 
 /* =========================================
-СБРОС СТИЛЕЙ (ИСПРАВЛЕНО: добавлен селектор *)
+СБРОС СТИЛЕЙ
 ========================================= */
 *, *::before, *::after {
   margin: 0;
@@ -97,15 +97,13 @@ body {
 }
 
 /* =========================================
-БЕЗОПАСНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ (ИСПРАВЛЕНО)
+БЕЗОПАСНАЯ АНИМАЦИЯ ПОЯВЛЕНИЯ
 ========================================= */
-/* По умолчанию всё ВИДНО (защита, если JS не загрузился) */
 .reveal {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Скрываем элементы ТОЛЬКО если JavaScript успешно работает */
 html.js-enabled .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -156,26 +154,25 @@ html.js-enabled .reveal.is-visible {
   font-size: clamp(20px, 2.5vw, 28px);
   font-weight: 800;
   letter-spacing: 0.05em;
-  color: #ffffff; /* Первая часть ("ПРОВ") белая */
+  color: #ffffff;
   text-transform: uppercase;
-  text-decoration: none; /* Гарантированно убираем любое подчеркивание */
+  text-decoration: none;
 }
 
-/* Добавьте этот новый блок ниже: */
 .logo-accent {
-  color: var(--color-accent); /* Вторая часть ("ОДОК") акцентного цвета */
+  color: var(--color-accent);
 }
 
 .logo--footer .logo-text {
   font-size: clamp(20px, 2.5vw, 28px);
   font-weight: 800;
   letter-spacing: 0.05em;
-  color: #ffffff; /* Первая часть ("ПРОВ") белая */
+  color: #ffffff;
   text-transform: uppercase;
-  text-decoration: none; /* Гарантированно убираем любое подчеркивание */
+  text-decoration: none;
 }
 .logo--footer .logo-accent {
-  color: var(--color-accent); /* Вторая часть ("ОДОК") акцентного цвета */
+  color: var(--color-accent);
 }
 
 .nav-desktop {
@@ -239,14 +236,14 @@ html.js-enabled .reveal.is-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: var(--transition);
 }
 
 .header-social:hover {
-  background: rgba(255, 255, 255, 0.2); /* Чуть светлее, но не сплошной цвет */
-  transform: translateY(-2px) scale(1.05); /* Эффект всплытия, как у виджета */
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -254,7 +251,6 @@ html.js-enabled .reveal.is-visible {
   width: 22px;
   height: 22px;
   display: block;
-  /* Убеждаемся, что к картинке не применяются фильтры инверсии */
   filter: none; 
 }
 
@@ -580,13 +576,12 @@ HERO ПОЛНОЭКРАННЫЙ
   padding: 20px;
   position: relative;
   border-radius: 16px;
-  /* Анимация только нужных свойств + GPU-ускорение */
   transition: 
     transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     border-color 0.4s ease;
   will-change: transform;
-  transform: translateZ(0); /* Активирует GPU-слой для плавности */
+  transform: translateZ(0);
 }
 
 .product-card--hit { 
@@ -627,13 +622,6 @@ HERO ПОЛНОЭКРАННЫЙ
   object-fit: contain;
   transition: transform 0.4s ease;
 }
-
-@media (hover: hover) and (pointer: fine) {
-  .product-card:hover {
-    border-color: #3fc33b;
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-4px) translateZ(0);
-  }
 
 .product-card__head {
   border-bottom: 1px solid rgba(42, 49, 43, 0.1);
@@ -759,12 +747,17 @@ HERO ПОЛНОЭКРАННЫЙ
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 /* Hover — только для устройств с мышью */
 @media (hover: hover) and (pointer: fine) {
   .product-card:hover {
     border-color: #3fc33b;
     box-shadow: var(--shadow-hover);
     transform: translateY(-4px) translateZ(0);
+  }
+
+  .product-card:hover .product-card__image img {
+    transform: scale(1.05);
   }
 
   .advantage-card:hover {
@@ -897,8 +890,8 @@ FAQ
 }
 
 .cta__image {
-  padding: 0; /* Убрали padding, который создавал "рамку" */
-  background: transparent; /* Убрали тёмный фон */
+  padding: 0;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -909,7 +902,7 @@ FAQ
   height: 100%;
   min-height: 100%;
   object-fit: cover;
-  border-radius: 24px 0 0 24px; /* Скругление только слева, где фото стыкуется с формой */
+  border-radius: 24px 0 0 24px;
 }
 
 .cta__image img {
