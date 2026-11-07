@@ -879,11 +879,19 @@ FAQ
 }
 
 .cta__image {
-  padding: 48px;
+  padding: 0; /* Убрали padding, который создавал "рамку" */
+  background: transparent; /* Убрали тёмный фон */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-dark);
+}
+
+.cta__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  border-radius: 24px 0 0 24px; /* Скругление только слева, где фото стыкуется с формой */
 }
 
 .cta__image img {
@@ -1519,5 +1527,24 @@ a.contact-item__value:hover {
   .mobile-bar-link img {
     width: 22px;
     height: 22px;
+  }
+}
+/* =========================================
+SCROLL-DRIVEN ANIMATION (CSS-only)
+========================================= */
+@supports (animation-timeline: view()) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal-up 0.8s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+  
+  @keyframes reveal-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
